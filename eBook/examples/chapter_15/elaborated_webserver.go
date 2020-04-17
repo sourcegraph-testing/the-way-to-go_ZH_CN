@@ -65,7 +65,7 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 
 // This makes Counter satisfy the expvar.Var interface, so we can export
 // it directly.
-func (ctr *Counter) String() string { return fmt.Sprintf("%d", ctr.n) }
+func (ctr *Counter) String() string { return strconv.Itoa(ctr.n) }
 
 func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
